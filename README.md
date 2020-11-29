@@ -3,8 +3,8 @@
  
  It is possible to design:
   - dots 
-  - lines (both vertical and horizontal), knowing the origin coordinates
-  - squares and rectangles, knowing the top left corner coordinates
+  - lines (both vertical and horizontal), knowing the origin's coordinates
+  - squares and rectangles, knowing the top left corner's coordinates
   - circles knowing ray and centre's coordinates
  
  This is a good excercise to practice with matrices in C 
