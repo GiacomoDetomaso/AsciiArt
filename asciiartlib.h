@@ -32,3 +32,8 @@ int printtLineV(char mat[][C], int l, int x, int y);               // print line
 int printSquare(char mat[][C], int l, int x, int y);              // print squadre in the matrix
 int printRectangle(char mat[][C], int l, int h, int x, int y);   // print rectangle in the matrix
 void printCircle(char mat[][C], int r, int h, int k);           // print the circle in the matrix with its dimension (ray height and center)
+
+
+/* Set of function for pgm writing */
+
+int writePGM(unsigned char * fileName, unsigned char * canvas, int r, int c); // r = row c = column

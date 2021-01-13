@@ -160,6 +160,16 @@ int main()
     }
     while (choose != FALSE);
 
+    printf("\n\nDo you want to save the canvas on a file? (Y/N)");
+    fflush(stdin);
+    choose = getchar();
+
+    if (choose == TRUE)
+        writePGM("canvas.pgm", canvas, R, C);
+    else
+        printf("Closing the canvas...");
+    
+
     //return 0;
 }
 

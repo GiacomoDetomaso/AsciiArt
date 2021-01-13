@@ -194,3 +194,24 @@ void printCircle(char mat[][C], int r, int h, int k)
         mat[y][x] = '*';
     }
 }
+
+
+int writePGM (unsigned char * fileName, unsigned char * canvas, int r, int c){
+    FILE *fp;
+    char buf [512];
+
+    fp = fopen(fileName, "wb"); // open binary file
+
+    if(fp == NULL)
+        return FALSE;
+
+    /* Header */
+    strcpy(buf, "P5 50 50 255\n"); 
+    fwrite(buf, sizeof(char), strlen(buf), fp);
+
+    /* Payload */
+    fwrite(canvas, sizeof(unsigned char), r * c, fp);
+    fclose(fp);
+	
+    return TRUE;
+}
