@@ -16,10 +16,10 @@ int main()
     do
     {
         menu();
-        
+
         printf("\nInsert choice: ");
         scanf("%d", &figure);
-        figure++;
+        figure++; // numeric costants in asciiartlib.c starts from 2
 
         switch (figure)
         {
@@ -79,7 +79,7 @@ int main()
             printf("Insert  top - left coordinates:\n");
 
             /*  Square data acquisition
-                    1) top left point (x,y) della matrice
+                    1) top left point (x,y) of the canvas
                     2) side's length*/
 
             printf("-x: ");
@@ -104,7 +104,7 @@ int main()
             printf("Insert top - left coordinates:\n");
 
             /*Rectangle data acquisition
-                    1) top left point (x,y) della matrice
+                    1) top left point (x,y) of the canvas
                     2) side's length
                     3) height */
 
@@ -121,22 +121,30 @@ int main()
             scanf("%d", &height);
 
             printRectangle(canvas, length, height, x, y);
-            printMat(canvas); 
+            printMat(canvas);
 
             break;
 
         case CIRCLE:
-            printf("Insert centre (xC, yX) of the circle and his ray\n");
+            do
+            {
+                printf("Insert centre (xC, yX) of the circle and his ray\n");
 
-            printf("-xC: ");
-            scanf("%d", &x);
+                printf("-xC: ");
+                scanf("%d", &x);
 
-            printf("\n-yC: ");
-            scanf("%d", &y);
+                printf("\n-yC: ");
+                scanf("%d", &y);
 
-            printf("\n-Ray:");
-            scanf("%d", &ray);
+                printf("\n-Ray:");
+                scanf("%d", &ray);
 
+                if (ray >= x || ray >= y)
+                    printf("\nRay to big, out of bound error!\nThe ray must be lower than the centre's coordinates!\n\n");
+
+            } while (ray >= x || ray >= y); // cicle to avoid the circumference to be out of the canvas's bounds
+
+            puts("\n\n");
             printCircle(canvas, ray, x, y);
             printMat(canvas);
 
@@ -157,8 +165,7 @@ int main()
         choose = getchar();
         tolower(choose);
 
-    }
-    while (choose != FALSE);
+    } while (choose != FALSE);
 
     printf("\n\nDo you want to save the canvas on a file? (Y/N)");
     fflush(stdin);
@@ -168,10 +175,6 @@ int main()
         writePGM("canvas.pgm", canvas, R, C);
     else
         printf("Closing the canvas...");
-    
 
     //return 0;
 }
-
-
-

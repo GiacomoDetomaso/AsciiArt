@@ -168,7 +168,7 @@ void printCircle(char mat[][C], int r, int h, int k)
     a = 1;
     b = -2 * k;
 
-    mat[h][k] = 'o'; // centre dot
+    mat[k][h] = 'o'; // centre dot
 
     for (x = h - r; x <= h + r; x++)
     {

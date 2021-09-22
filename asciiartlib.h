@@ -2,8 +2,8 @@
 #include <math.h>
 #include <ctype.h>
 
-#define C 50
-#define R 50
+#define C 99
+#define R 99
 
 /* indicate the state of some operations */
 enum State
